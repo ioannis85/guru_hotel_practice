@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Hotels {
+
+   hotelId Int @id @map("_id") 
+   name String 
+   city String
+   state String
+   creationDate DateTime @default(now())
+}
+
+model Rooms {
+  room_id String @id  @map("_id") @db.String
+  hotel_id Int 
+  room_name String
+  room_type String
+  bed_count Int
+  amenities String[]
+  rooms_prices RoomsPrices[]
+}
+
+model RoomsPrices {
+  price_id  String @id   @map("_id") @db.String
+  room_id String 
+  room  Rooms  @relation(fields: [room_id], references: [room_id])
+  date DateTime @db.Date 
+  competitor_name String
+  price Float @db.Double
+  currency String
+  tax Float @db.Double
+}
+
+model CachingRoomKeys {
+  id String @id  @map("_id") @db.String
+  key String @unique
+}
+
+model Roles {
+  role_id  String @id  @map("_id") @db.String
+  role_name String
+}
+
+model Users {
+  user_id String @id   @map("_id") @db.String
+  username String 
+  password String 
+}
+
+model UsersRoles {
+  user_rol_id  String @id   @map("_id") @db.String
+  user_id String
+  role_id String
+}
+
