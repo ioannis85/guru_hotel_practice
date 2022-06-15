@@ -19,6 +19,26 @@ one time, you completed with the prerequisites you can  follow the next steps.
 
 `git clone  https://github.com/ioannis85/guru_hotel_practice.git/`
 
-- execute npm install to install de project dependencies
-`npm install`
+- next, you need install de GuruHotel Internal tool  with the next command.
+
+`git clone https://gitlab.com/guruhotel/backend-internal-tool-assesment.git`
+
+- then, you need execute the docker compose up  in your termina, inside GuruHotel Internal tool base code, and verify if project is running hitting http://localhost:5000
+
+`docker compose up`
+
+`http://localhost:5000  [into your favorite browser]`
+
+- in your compturer, go to guru_hotel_practice project and open the docker-compose.yaml file  and edit enviroment service variables with the right value 
+
+![image](https://user-images.githubusercontent.com/100004397/173916772-484f3a88-aa60-485a-a59e-194dba73a6d5.png)
+
+- the final step is  execute de docker-compose command in your terminal, in order to verify if the graphql api is up you can hit http://localhost:4000
+
+`docker compose up`
+
+`http://localhost:4000`
+
+
+
 
