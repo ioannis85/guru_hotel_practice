@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import jsonwebtoken from 'jsonwebtoken'
 import { json } from "express";
 import { config } from 'dotenv'
-import chalk from 'chalk';
 config()
 
 const Data = {
@@ -11,6 +10,8 @@ const Data = {
      publicId : uuidv4(),
     jwtSecret : process.env.JWT_SECRET
 }
+
+console.log(process.env.DATABASE_URL)
 
 const tokenManager =  jsonwebtoken.sign({ userId: Data.managerId,  name:'Manager User', role:'Manager' }, Data.jwtSecret, { expiresIn: '10y' }) 
 const tokenPublic  =  jsonwebtoken.sign({ userId: Data.publicId, name:'Public User', role: 'Public' },  Data.jwtSecret, { expiresIn: '10y' }) 
@@ -38,9 +39,9 @@ const tokenPublic  =  jsonwebtoken.sign({ userId: Data.publicId, name:'Public Us
             }
       ]})
 
-      console.log(chalk.green(`manager token: ${tokenManager} \n`))
+      console.log(`manager token: ${tokenManager} \n`)
       console.log('..................................................................................................')
-      console.log(chalk.blueBright(`public token: ${tokenPublic}`))
+      console.log(`public token: ${tokenPublic}`)
 }
 
 seedData()

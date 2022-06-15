@@ -1,4 +1,5 @@
 import moment  from 'moment'
+import { getDate } from './dateparser'
 
 export const getDateRanges = (period : string)=> {
 
@@ -24,3 +25,12 @@ export const getDateRanges = (period : string)=> {
     return dateRanges
 
 } 
+
+
+export const getDateRange =(day: string)=> {
+    const date =moment( getDate(day))
+    const monthDays = date.daysInMonth()
+    const initialDate = moment(new Date(date.year(), date.month() , 1 )).format('DD/MM/yyyy')
+    const endDate = moment(new Date(date.year(), date.month() , monthDays )).format('DD/MM/yyyy')
+    return {initialDate, endDate}
+}

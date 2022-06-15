@@ -38,6 +38,8 @@ export const resolvers = {
             throw new AuthorizeError('User is unauthorized for this action');
           }
 
+          console.log(room_type)
+
           const result = await hotelService.getHotelMetrics(hotel_id, day, room_type)
           return result
         }

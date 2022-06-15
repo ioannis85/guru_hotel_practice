@@ -63,7 +63,7 @@ type Prices {
    type Query {
        getHotelInsights(hotel_id: Int, period: Period , room_type: RoomType, limit: Int): [Room]
        ping: PingResult
-       getHotelMetrics(hotel_id: Int, day: String, roomt_type: RoomType) : [RoomMetricsResult]
+       getHotelMetrics(hotel_id: Int, day: String, room_type: RoomType) : [RoomMetricsResult]
      } 
 `
 
