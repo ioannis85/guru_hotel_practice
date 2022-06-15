@@ -33,12 +33,18 @@ one time, you completed with the prerequisites you can  follow the next steps.
 
 ![image](https://user-images.githubusercontent.com/100004397/173916772-484f3a88-aa60-485a-a59e-194dba73a6d5.png)
 
-- the final step is  execute de docker-compose command in your terminal, in order to verify if the graphql api is up you can hit http://localhost:4000
-
-`docker compose up`
-
-`http://localhost:4000`
+- the final step is  execute  `docker compose up` command in your terminal, in order to verify if the graphql api is up you can hit `http://localhost:4000`
 
 
+
+
+
+##NOTE:
+  you can create users and roles in your db using the next command: `npm run seedData` this command create users, tokens and roles to test the graphql funtionality
+  
+  ![image](https://user-images.githubusercontent.com/100004397/173921010-e8d6260c-b6b6-4fb3-8f7d-e7f796301e35.png)
+
+  
+  
 
 
