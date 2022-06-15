@@ -3,9 +3,9 @@ services:
   server:
     build: .
     environment:
-      - EXTERNAL_API_URL=http://172.29.208.1:5000
-      - JWT_SECRET=secret
-      - DATABASE_URL=mongodb+srv://admin:5040%2BEnvio%3A%29@guruhotel.vsfi2kg.mongodb.net/guruhotel?retryWrites=true&w=majority
+      - EXTERNAL_API_URL=yourExternalAPIHere
+      - JWT_SECRET=yourSecretHere
+      - DATABASE_URL=yourmongodbConnectionstringHere
     ports:
       - 4000:4000
     expose:
