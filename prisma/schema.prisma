@@ -53,12 +53,7 @@ model Roles {
 model Users {
   user_id String @id   @map("_id") @db.String
   username String 
-  password String 
+  token String
 }
 
-model UsersRoles {
-  user_rol_id  String @id   @map("_id") @db.String
-  user_id String
-  role_id String
-}
 

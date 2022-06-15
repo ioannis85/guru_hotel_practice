@@ -1,5 +1,6 @@
-import { ApolloServer }  from 'apollo-server'
+import { ApolloServer, AuthenticationError }  from 'apollo-server'
 import { PrismaClient } from '@prisma/client'
+import jsonwebtoken from 'jsonwebtoken'
 import  { typeDefs  } from './schemas/hotel'
 import { resolvers } from './resolvers/hotel'
 import {ExternalApiDatasource} from './datasources/externalApi'
@@ -23,5 +24,17 @@ export const server = new ApolloServer({
     resolvers,
     csrfPrevention: true,
     dataSources:()=> ({ externalApiDatasource }),
-    context : (req)=>({ hotelService, composeHealthCheck })
+    context : async (context)=>{
+        const token = context.req.headers.authorization || '';
+        if (!token) throw new AuthenticationError('jwt token missed');
+        const tokenPayload = jsonwebtoken.decode(token, { json: true })
+        if(!tokenPayload) throw new AuthenticationError('jwt token is invalid');
+        const { userId, role } = tokenPayload
+        await  prisma.$connect()
+        const user = await prisma.users.findUnique({ where:{ user_id: userId } })
+        console.log(user)
+        if(!user) throw new AuthenticationError('user is invalid');
+        const userData = { userId, role }
+       return { userData, hotelService, composeHealthCheck }
+    }
 });

@@ -64,10 +64,10 @@ export class HotelService {
           for(let j=0; j < roomPrices.length; j++){
             const price = roomPrices[j]
             const { date, booking, expedia, travel_com, guruhotel } = price
-            roomsPrices.push({price_id:uuidv4(), room_id: roomId, date:  getDate(date), competitor_name: 'booking',  price: booking.price, currency: booking.currency,  tax: booking.tax  })
-            roomsPrices.push({price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'expedia',  price: expedia.price, currency: expedia.currency,  tax: expedia.tax  })
-            roomsPrices.push({price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'travel_com',  price: travel_com.price, currency: travel_com.currency,  tax: travel_com.tax  })
-            roomsPrices.push({price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'guruhotel',  price: guruhotel.price, currency: guruhotel.currency,  tax: guruhotel.tax  })
+            roomsPrices.push({ price_id:uuidv4(), room_id: roomId, date:  getDate(date), competitor_name: 'booking',  price: booking.price, currency: booking.currency,  tax: booking.tax  })
+            roomsPrices.push({ price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'expedia',  price: expedia.price, currency: expedia.currency,  tax: expedia.tax  })
+            roomsPrices.push({ price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'travel_com',  price: travel_com.price, currency: travel_com.currency,  tax: travel_com.tax  })
+            roomsPrices.push({ price_id:uuidv4(), room_id: roomId, date: getDate(date), competitor_name: 'guruhotel',  price: guruhotel.price, currency: guruhotel.currency,  tax: guruhotel.tax  })
           }
         }
       }
